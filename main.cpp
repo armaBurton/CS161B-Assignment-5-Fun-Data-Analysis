@@ -3,7 +3,7 @@
 int main()
 {
     ifstream inFile;
-    int index,
+    int index = 0,
         id[FOUR_HUNDO];
     char gender[FOUR_HUNDO][CSTRING_LENGTH];
     int age[FOUR_HUNDO];
@@ -25,7 +25,7 @@ int main()
         return 0;
     }
     // readFile(inFile, index, data);
-    index = 0;
+
     readFile(
         inFile,
         index,
@@ -43,7 +43,21 @@ int main()
         dailySteps,
         sleepDisorder);
 
-    cout << sleepDisorder[12] << endl;
+    printFile(
+        index,
+        id,
+        gender,
+        age,
+        occupation,
+        sleepDuration,
+        sleepQuality,
+        physicalActivityLevel,
+        stressLevel,
+        bmiCategory,
+        bloodPressure,
+        heartRate,
+        dailySteps,
+        sleepDisorder);
 
     inFile.close();
 }

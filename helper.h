@@ -32,3 +32,19 @@ void readFile(
     int heartRate[],
     int dailySteps[],
     char sleepDisorder[][CSTRING_LENGTH]);
+
+void printFile(
+    int &index,
+    int id[],
+    char gender[][CSTRING_LENGTH],
+    int age[],
+    char occupation[][CSTRING_LENGTH],
+    double sleepDuration[],
+    int sleepQuality[],
+    int physicalActivityLevel[],
+    int stressLevel[],
+    char bmiCategory[][CSTRING_LENGTH],
+    char bloodPressure[][CSTRING_LENGTH],
+    int heartRate[],
+    int dailySteps[],
+    char sleepDisorder[][CSTRING_LENGTH]);

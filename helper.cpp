@@ -71,3 +71,53 @@ void readFile(
         index++;
     }
 }
+
+void printFile(
+    int &index,
+    int id[],
+    char gender[][CSTRING_LENGTH],
+    int age[],
+    char occupation[][CSTRING_LENGTH],
+    double sleepDuration[],
+    int sleepQuality[],
+    int physicalActivityLevel[],
+    int stressLevel[],
+    char bmiCategory[][CSTRING_LENGTH],
+    char bloodPressure[][CSTRING_LENGTH],
+    int heartRate[],
+    int dailySteps[],
+    char sleepDisorder[][CSTRING_LENGTH])
+{
+    cout << "ID"
+         << "   Gender"
+         << "   Age"
+         << "   Occupation"
+         << "\t Sleep Duration"
+         << "\t   Quality of Sleep"
+         << "     Physical Activity Level"
+         << "\t   Stress Level"
+         << "\t   BMI Category"
+         << "\t   Blood Pressure"
+         << "\tHeart Rate"
+         << "\tDaily Steps"
+         << "\tSleep Disorder"
+         << endl;
+    for (int i = 0; i < index; i++)
+    {
+        if (i < 9)
+        {
+            cout << "00" << id[i];
+        }
+        else if (i >= 9 && i < 99)
+        {
+            cout << "0" << id[i];
+        }
+        else
+        {
+            cout << id[i];
+        }
+
+        cout << "  " << gender[i];
+        cout << endl;
+    }
+}
