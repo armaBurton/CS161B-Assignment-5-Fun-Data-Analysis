@@ -67,7 +67,7 @@ void readFile(
         inFile.getline(temp, CSTRING_LENGTH, ',');
         dailySteps[index] = atoi(temp);
         inFile.getline(sleepDisorder[index], CSTRING_LENGTH, '\n');
-        cout << occupation[index] << endl;
+
         index++;
     }
 }

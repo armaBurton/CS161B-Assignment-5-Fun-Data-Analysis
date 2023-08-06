@@ -43,5 +43,7 @@ int main()
         dailySteps,
         sleepDisorder);
 
+    cout << sleepDisorder[12] << endl;
+
     inFile.close();
 }
