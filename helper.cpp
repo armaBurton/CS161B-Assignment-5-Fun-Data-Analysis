@@ -102,7 +102,7 @@ void printFile(
          << "\tDaily Steps"
          << "\tSleep Disorder"
          << endl;
-    for (int i = 0; i < index; i++)
+    for (int i = 0; i < 15; i++)
     {
         if (i < 9)
         {
@@ -117,7 +117,8 @@ void printFile(
             cout << id[i];
         }
 
-        cout << "  " << gender[i];
+        cout << "  " << gender[i]
+             << "  " << age[i];
         cout << endl;
     }
 }
