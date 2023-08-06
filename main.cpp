@@ -59,5 +59,11 @@ int main()
         dailySteps,
         sleepDisorder);
 
+    averageSleepDuration(index, sleepDuration);
+    averagePhysicalActivityLevel(physicalActivityLevel);
+    averageStressLevel(stressLevel);
+    averageBloodPressure(bloodPressure);
+
     inFile.close();
+    cout << endl;
 }

@@ -20,7 +20,7 @@ bool openFile(ifstream &inFile)
 /*
     Name:   readFile()
     Desc:   Reads the file
-    input:  None
+    input:  "Sleep_and_lifestyle.csv"
     output: none
     return: none
 */
@@ -72,8 +72,15 @@ void readFile(
     }
 }
 
+/*
+    Name:   printFile()
+    Desc:   Prints the contents of the file to the console.
+    input:  None
+    output: int, char, double
+    return: none
+*/
 void printFile(
-    int &index,
+    int index,
     int id[],
     char gender[][CSTRING_LENGTH],
     int age[],
@@ -88,37 +95,142 @@ void printFile(
     int dailySteps[],
     char sleepDisorder[][CSTRING_LENGTH])
 {
-    cout << "ID"
-         << "   Gender"
-         << "   Age"
-         << "   Occupation"
-         << "\t Sleep Duration"
-         << "\t   Quality of Sleep"
-         << "     Physical Activity Level"
-         << "\t   Stress Level"
-         << "\t   BMI Category"
-         << "\t   Blood Pressure"
-         << "\tHeart Rate"
-         << "\tDaily Steps"
-         << "\tSleep Disorder"
-         << endl;
-    for (int i = 0; i < 15; i++)
+    cout.setf(ios::left, ios::adjustfield);
+    cout.width(6);
+    cout << "ID";
+    cout.width(9);
+    cout << "Gender";
+    cout.width(5);
+    cout << "Age";
+    cout.width(23);
+    cout << "Occupation";
+    cout.width(17);
+    cout << "Sleep Duration";
+    cout.width(26);
+    cout << "Physical Activity Level";
+    cout.width(15);
+    cout << "Stress Level";
+    cout.width(15);
+    cout << "BMI Category";
+    cout.width(17);
+    cout << "Blood Pressure";
+    cout.width(13);
+    cout << "Heart Rate";
+    cout.width(14);
+    cout << "Daily Steps";
+    cout << "Sleep Disorder";
+    cout << endl;
+    cout << "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n";
+    for (int i = 0; i < 30; i++)
     {
-        if (i < 9)
-        {
-            cout << "00" << id[i];
-        }
-        else if (i >= 9 && i < 99)
-        {
-            cout << "0" << id[i];
-        }
-        else
-        {
-            cout << id[i];
-        }
+        cout.setf(ios::left, ios::adjustfield);
+        cout.width(6);
+        cout << id[i];
+        cout.width(9);
+        cout << gender[i];
+        cout.width(5);
+        cout << age[i];
+        cout.width(23);
+        cout << occupation[i];
+        cout.width(17);
+        cout << sleepDuration[i];
+        cout.width(26);
+        cout << physicalActivityLevel[i];
+        cout.width(15);
+        cout << stressLevel[i];
+        cout.width(15);
+        cout << bmiCategory[i];
+        cout.width(17);
+        cout << bloodPressure[i];
+        cout.width(13);
+        cout << heartRate[i];
+        cout.width(14);
+        cout << dailySteps[i];
+        cout << sleepDisorder[i];
 
-        cout << "  " << gender[i]
-             << "  " << age[i];
         cout << endl;
     }
+}
+
+/*
+    Name:   averageSleepDuration()
+    Desc:   Finds and displays the average sleep duration
+    input:  None
+    output: double
+    return: none
+*/
+void averageSleepDuration(int index, double sleepDuration[])
+{
+    double sum = 0;
+    for (int i = 0; i < 30; i++)
+    {
+        sum += sleepDuration[i];
+    }
+    cout << endl
+         << "Average Sleep Duration: " << sum / 30;
+}
+
+/*
+    Name:   averagePhysicalActivityLevel()
+    Desc:   Finds and displays the average physical activity
+    input:  None
+    output: double
+    return: none
+*/
+void averagePhysicalActivityLevel(int physicalActivityLevel[])
+{
+    int sum = 0;
+    for (int i = 0; i < 30; i++)
+    {
+        sum += physicalActivityLevel[i];
+    }
+    cout << "\tAverage Physical Activity Level: " << static_cast<double>(sum) / 30;
+}
+
+/*
+    Name:   averageStressLevel()
+    Desc:   Finds and displays the average stress level
+    input:  None
+    output: double
+    return: none
+*/
+void averageStressLevel(int stressLevel[])
+{
+    int sum = 0;
+    for (int i = 0; i < 30; i++)
+    {
+        sum += stressLevel[i];
+    }
+    cout << "\tAverage Stress Level: " << static_cast<double>(sum) / 30;
+}
+
+/*
+    Name:   averageBloodPressure()
+    Desc:   Finds and displays the average stress level
+    input:  None
+    output: double
+    return: none
+*/
+void averageBloodPressure(char bloodPressure[][CSTRING_LENGTH])
+{
+    double sumSystolic = 0, sumDiastolic = 0;
+
+    for (int i = 0; i < 30; ++i)
+    {
+        // find first occurance of '/' in bloodPressure[i]
+        // and set pointer
+        char *slash = strchr(bloodPressure[i], '/');
+        if (slash)
+        {
+            *slash = '\0';
+            // conver cstring to double
+            double systolic = atof(bloodPressure[i]);
+            double diatolic = atof(slash + 1);
+
+            sumSystolic += systolic;
+            sumDiastolic += diatolic;
+        }
+    }
+
+    cout << "\tAverage Blood Pressure: " << sumSystolic / 30 << "/" << sumDiastolic / 30;
 }

@@ -34,7 +34,7 @@ void readFile(
     char sleepDisorder[][CSTRING_LENGTH]);
 
 void printFile(
-    int &index,
+    int index,
     int id[],
     char gender[][CSTRING_LENGTH],
     int age[],
@@ -48,3 +48,8 @@ void printFile(
     int heartRate[],
     int dailySteps[],
     char sleepDisorder[][CSTRING_LENGTH]);
+
+void averageSleepDuration(int index, double sleepDuration[]);
+void averagePhysicalActivityLevel(int physicalActivityLevel[]);
+void averageStressLevel(int stressLevel[]);
+void averageBloodPressure(char bloodPressure[][CSTRING_LENGTH]);
