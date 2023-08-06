@@ -43,5 +43,31 @@ void readFile(
 {
     char burnThisLine[FOUR_HUNDO];
     inFile.getline(burnThisLine, FOUR_HUNDO, '\n');
-    cout << burnThisLine << endl;
+    char temp[CSTRING_LENGTH];
+
+    while (inFile.getline(temp, CSTRING_LENGTH, ','))
+    {
+        id[index] = atoi(temp);
+        inFile.getline(gender[index], CSTRING_LENGTH, ',');
+        inFile.getline(temp, CSTRING_LENGTH, ',');
+        age[index] = atoi(temp);
+        inFile.getline(occupation[index], CSTRING_LENGTH, ',');
+        inFile.getline(temp, CSTRING_LENGTH, ',');
+        sleepDuration[index] = atof(temp);
+        inFile.getline(temp, CSTRING_LENGTH, ',');
+        sleepQuality[index] = atoi(temp);
+        inFile.getline(temp, CSTRING_LENGTH, ',');
+        physicalActivityLevel[index] = atoi(temp);
+        inFile.getline(temp, CSTRING_LENGTH, ',');
+        stressLevel[index] = atoi(temp);
+        inFile.getline(bmiCategory[index], CSTRING_LENGTH, ',');
+        inFile.getline(bloodPressure[index], CSTRING_LENGTH, ',');
+        inFile.getline(temp, CSTRING_LENGTH, ',');
+        heartRate[index] = atoi(temp);
+        inFile.getline(temp, CSTRING_LENGTH, ',');
+        dailySteps[index] = atoi(temp);
+        inFile.getline(sleepDisorder[index], CSTRING_LENGTH, '\n');
+        cout << occupation[index] << endl;
+        index++;
+    }
 }

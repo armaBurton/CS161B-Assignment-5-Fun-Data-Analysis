@@ -17,12 +17,15 @@ int main()
     int heartRate[FOUR_HUNDO],
         dailySteps[FOUR_HUNDO];
     char sleepDisorder[FOUR_HUNDO][CSTRING_LENGTH];
+    char data[FOUR_HUNDO][CSTRING_LENGTH];
 
     if (!openFile(inFile))
     {
         cout << "File did not open. Program terminating.\n";
         return 0;
     }
+    // readFile(inFile, index, data);
+    index = 0;
     readFile(
         inFile,
         index,
